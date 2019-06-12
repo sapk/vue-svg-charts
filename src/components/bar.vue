@@ -6,7 +6,7 @@
         <title>{{ bar.value }}</title>
         <rect :width="partitionWidth - 2" :height="bar.oldHeight" :x="2" :y="-bar.oldHeight">
           <animate
-            v-if="easeIn"
+            v-if="animated"
             attributeName="height"
             :from="bar.oldHeight"
             :to="bar.height"
@@ -15,7 +15,7 @@
             fill="freeze"
           ></animate>
           <animate
-            v-if="easeIn"
+            v-if="animated"
             attributeName="y"
             :from="-bar.oldHeight"
             :to="-bar.height"
@@ -33,7 +33,7 @@
         >
           {{ bar.value }}
           <animate
-            v-if="easeIn"
+            v-if="animated"
             attributeName="y"
             :from="-bar.textOldHeight"
             :to="-bar.textHeight"
@@ -63,9 +63,9 @@ export default {
     title: { type: String, default: "" },
     points: { type: Array, default: () => [] },
     labels: { type: Array, default: () => [] },
-    height: { type: Number, default: 100 },
-    width: { type: Number, default: 100 },
-    easeIn: { type: Boolean, default: true },
+    height: { type: Number, default: 320 },
+    width: { type: Number, default: 680 },
+    animated: { type: Boolean, default: true },
     showValues: { type: Boolean, default: false },
     animDuration: { type: String, default: "1s" },
   },

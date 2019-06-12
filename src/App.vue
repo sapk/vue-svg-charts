@@ -1,7 +1,20 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" @click="changeData" style="margin-bottom: 4rem;">
-    <bar-graph title="Test Bar Graph" animDuration="1s" :showValues="true" :easeIn="true" :points="dataPoints" :labels="dataLabels" :width="680" :height="320"/>
+    <h3>Simple</h3>
+    <bar-graph :points="dataPoints"/>
+    <hr>
+    <h3>Advanced</h3>
+    <bar-graph
+      title="Test Bar Graph"
+      animDuration="1s"
+      :showValues="true"
+      :animated="true"
+      :points="dataPoints"
+      :labels="dataLabels"
+      :width="1024"
+      :height="320"
+    />
   </div>
 </template>
 
@@ -15,7 +28,17 @@ export default {
   data() {
     return {
       dataPoints: [42, 8, 15, 16, 23, 42, 4, 8, 15],
-      dataLabels: ["Label 1", "Label 2", "Label 3", "Label 4", "Label 5", "Label 6", "Label 7", "Label 8", "Label 9"],
+      dataLabels: [
+        "Label 1",
+        "Label 2",
+        "Label 3",
+        "Label 4",
+        "Label 5",
+        "Label 6",
+        "Label 7",
+        "Label 8",
+        "Label 9"
+      ]
     };
   },
   created: function() {
@@ -24,10 +47,10 @@ export default {
   methods: {
     changeData() {
       this.dataPoints = this.dataPoints.map(() => {
-        return Math.floor(Math.random() * Math.max(180)) + 1
+        return Math.floor(Math.random() * Math.max(180)) + 1;
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -38,6 +61,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin: 60px 0px;
+}
+hr {
+  margin: 4rem 8rem;
 }
 </style>
