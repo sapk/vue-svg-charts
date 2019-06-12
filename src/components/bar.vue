@@ -81,8 +81,8 @@ export default {
   watch: {
     points(newPoints, oldPoints) {
       this.lastUpdate = Date.now();
-      var m  = Math.max(...oldPoints);
-      this.oldHeights = oldPoints.map((value) => {
+      var m = Math.max(...oldPoints);
+      this.oldHeights = oldPoints.map(value => {
         return this.yWithMax(value, m);
       });
     }
@@ -115,7 +115,7 @@ export default {
           animBegin:
             this.lastUpdate == 0
               ? "0"
-              : (this.lastUpdate - this.start) / 1000 +2 + "s"
+              : (this.lastUpdate - this.start) / 1000 + "s"
         };
 
         //Override text position
