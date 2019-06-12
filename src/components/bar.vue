@@ -27,7 +27,7 @@
         <text
           v-if="showValues"
           :x="bar.midPoint"
-          :y="-bar.oldHeight"
+          :y="-bar.textOldHeight"
           dy="20px"
           text-anchor="middle"
         >
