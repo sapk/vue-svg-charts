@@ -54,6 +54,7 @@
           text-anchor="middle"
         >{{ labels[bar.index] }}</text>
       </g>
+      <slot name="svg-footer"></slot>
     </svg>
   </div>
 </template>

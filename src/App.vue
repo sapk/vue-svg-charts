@@ -15,6 +15,17 @@
       :width="1024"
       :height="320"
     />
+    <hr>
+    <h3>Custom CSS (+slot for gradient)</h3>
+    <bar-graph class="custom-style" :points="dataPoints">
+      <template slot="svg-footer">
+        <linearGradient id="custom-style-gradient-vertical" x2="0" y2="1">
+          <stop offset="0%" stop-color="var(--color-stop-1)"></stop>
+          <stop offset="50%" stop-color="var(--color-stop-2)"></stop>
+          <stop offset="100%" stop-color="var(--color-stop-3)"></stop>
+        </linearGradient>
+      </template>
+    </bar-graph>
   </div>
 </template>
 
@@ -65,5 +76,14 @@ export default {
 }
 hr {
   margin: 4rem 8rem;
+}
+
+#custom-style-gradient-vertical {
+  --color-stop-1: #00c3ff;
+  --color-stop-2: #77e190;
+  --color-stop-3: #42b883;
+}
+.custom-style .chart rect {
+  fill: url(#custom-style-gradient-vertical) gray;
 }
 </style>
