@@ -1,0 +1,68 @@
+{
+  "name": "vue-svg-charts",
+  "version": "0.0.1",
+  "author": {
+    "name": "Antoine GIRARD",
+    "email": "sapk@sapk.fr"
+  },
+  "description": "Simple SVG charts Vue components",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "main": "./dist/vue-svg-charts.common.js",
+  "source": "src/index.js",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sapk/vue-svg-charts.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --target lib src/lib.js",
+    "lint": "vue-cli-service lint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/sapk/vue-svg-charts/issues"
+  },
+  "homepage": "https://github.com/sapk/vue-svg-charts#readme",
+  "dependencies": {
+    "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-service": "^3.8.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "globals": {},
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}
