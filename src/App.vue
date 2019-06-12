@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" @click="changeData">
+    <img alt="Vue logo" src="./assets/logo.png" @click="changeData" style="margin-bottom: 4rem;">
     <bar-graph title="Test Bar Graph" animDuration="1s" :showValues="true" :easeIn="true" :points="dataPoints" :labels="dataLabels" :width="680" :height="320"/>
   </div>
 </template>
