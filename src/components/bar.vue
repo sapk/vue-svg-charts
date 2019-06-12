@@ -2,7 +2,11 @@
   <div>
     <svg class="chart" :width="width" :height="height">
       <title v-if="title" id="title">{{ title }}</title>
-      <g v-for="bar in chartData" :key="bar.index" :transform="`translate(${bar.x},${graphHeight})`">
+      <g
+        v-for="bar in chartData"
+        :key="bar.index"
+        :transform="`translate(${bar.x},${graphHeight})`"
+      >
         <title>{{ bar.value }}</title>
         <rect :width="partitionWidth - 2" :height="bar.oldHeight" :x="2" :y="-bar.oldHeight">
           <animate
@@ -48,9 +52,7 @@
           :y="0"
           dy="20px"
           text-anchor="middle"
-        >
-          {{ labels[bar.index] }}
-        </text>
+        >{{ labels[bar.index] }}</text>
       </g>
     </svg>
   </div>
@@ -67,25 +69,28 @@ export default {
     width: { type: Number, default: 680 },
     animated: { type: Boolean, default: true },
     showValues: { type: Boolean, default: false },
-    animDuration: { type: String, default: "1s" },
+    animDuration: { type: String, default: "1s" }
   },
   data() {
     return {
       start: Date.now(),
       lastUpdate: 0,
-      oldPoints: []
+      oldHeights: []
     };
   },
   watch: {
     points(newPoints, oldPoints) {
       this.lastUpdate = Date.now();
-      this.oldPoints = oldPoints; //TODO imrove to store height and not value (as it can be greater than previous)
+      var m  = Math.max(...oldPoints);
+      this.oldHeights = oldPoints.map((value) => {
+        return this.yWithMax(value, m);
+      });
     }
   },
   computed: {
     graphHeight() {
       if (this.labels.length > 0) {
-        return this.height-20; //Shorten the graph area for labels
+        return this.height - 20; //Shorten the graph area for labels
       }
       return this.height;
     },
@@ -104,25 +109,28 @@ export default {
           x: index * this.partitionWidth,
           height: this.y(value),
           oldHeight:
-            typeof this.oldPoints[index] === "undefined"
+            typeof this.oldHeights[index] === "undefined"
               ? 0
-              : this.y(this.oldPoints[index]),
+              : this.oldHeights[index],
           animBegin:
             this.lastUpdate == 0
               ? "0"
-              : (this.lastUpdate - this.start) / 1000 + "s"
+              : (this.lastUpdate - this.start) / 1000 +2 + "s"
         };
 
         //Override text position
-        ret.textHeight = Math.max(24, ret.height)
-        ret.textOldHeight = Math.max(24, ret.oldHeight)
-        return ret
+        ret.textHeight = Math.max(24, ret.height);
+        ret.textOldHeight = Math.max(24, ret.oldHeight);
+        return ret;
       });
     }
   },
   methods: {
     y(val) {
-      return (val / this.maxDomain) * this.graphHeight;
+      return this.yWithMax(val, this.maxDomain);
+    },
+    yWithMax(val, max) {
+      return (val / max) * this.graphHeight;
     }
   }
 };
