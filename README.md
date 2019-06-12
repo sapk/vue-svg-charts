@@ -32,9 +32,9 @@ npm install vue-svg-charts
 - ES6
 
 ```javascript
-import BarGraph from "./components/bar";
+import BarGraph from "vue-svg-charts/components/bar";
 
-Vue.use(Donut);
+Vue.use(BarGraph);
 ```
 
 ## Usage
@@ -148,7 +148,7 @@ With sane defaults in place, basic usage is as simple as passing a `points` arra
 
 Code released under [MIT](https://github.com/sapk/vue-svg-charts/blob/master/LICENSE) license.
 
-## Evolutions
+## Roadmap
 - More graph
 
 ## Inspired by:
