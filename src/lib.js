@@ -1,4 +1,4 @@
-export { BarGraph } from './components'
+import { BarGraph } from './components'
 
 //Base on bootstrap-vue code
 const registerComponent = (Vue, name, def) => {
@@ -24,8 +24,14 @@ const installFactory = ({ components } = {}) => {
   }
 
 // VueSVGCharts plugin
-export const VueSVGCharts = {
+const VueSVGCharts = {
     install: installFactory([BarGraph]),
+}
+
+export {
+  // VueSVGCharts plugin
+  VueSVGCharts,
+  BarGraph,
 }
 
 export default VueSVGCharts

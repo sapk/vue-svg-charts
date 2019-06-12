@@ -75,7 +75,6 @@ export default {
     },
     chartData() {
       return this.points.map((value, index) => {
-        console.log(index, this.oldPoints[index], this.lastUpdate)
         return {
           index,
           value,

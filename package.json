@@ -11,7 +11,7 @@
     "dist"
   ],
   "main": "./dist/vue-svg-charts.common.js",
-  "source": "src/index.js",
+  "source": "src/lib.js",
   "private": false,
   "repository": {
     "type": "git",
