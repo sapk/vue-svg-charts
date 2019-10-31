@@ -22,7 +22,7 @@ jobs:
         echo ${{github.ref}}
         npm install
         npm run build --if-present
-        npm lint
+        npm run lint
       env:
         CI: true
     - name: Use Node.js 12.x for release
